@@ -1,0 +1,73 @@
+* {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1em;
+}
+
+.array-container {
+  align-items: center;
+  display: flex;
+  margin-top: auto;
+}
+
+.array-bar {
+  background-color: red;
+  border-radius: 0.35em;
+  margin: 0.10%;
+}
+
+.app-footer {
+  display: flex;
+  overflow-x: auto;
+  background-color: #333;
+  margin-top: auto;
+}
+
+.app-footer ul {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  white-space: nowrap;
+}
+
+.app-button {
+  border-radius: 0.4em;
+  border-width: 0.05em;
+  color: white;
+  padding: 0.5em;
+  margin: 0 0.5em;
+  background-color: transparent;
+}
+
+.app-button:focus {
+  outline: none;
+}
+
+.app-button:hover {
+  color: #333;
+  background-color: #eaeaea;
+}
+
+.visualizer-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 105vh;
+}
+
+.displayNo{
+  font-size: 0.5em;
+  font-weight: bold;
+  margin: 0.5em;
+  padding-right: 20px;
+}
+
+#fileInput{
+  
+  width: 213px;
+
+}
+
+@media (min-width: 700px) {
+  .app-footer {
+    justify-content: center;
+  }
+}
