@@ -1,7 +1,6 @@
-import {utility} from './utility.js';    
 
-const findMaximum = arr => arr.reduce((acc, val) => val > acc ? val: acc, Number.MIN_VALUE)
-export function countingSort(arr){
+const findMaximum = copy => copy.reduce((acc, val) => val > acc ? val: acc, Number.MIN_VALUE)
+export function getCountSortAnimations(arr){
     const copy = [...arr];
     const animations = [];
 //    const max = findMaximum(arr);
@@ -14,10 +13,10 @@ export function countingSort(arr){
    counts.forEach((count, index) => {
       for (let i = 0; i < count; i++) {
          res[resultIndex] = index;
-         animations.push([[resultIndex,res[resultIndex+1]],true]);
-         resultIndex++;
          animations.push([[resultIndex,res[resultIndex]],true]);
+         resultIndex++;
       };
+      animations.push([[resultIndex,res[resultIndex]],true]);
    });
    return animations;
 };

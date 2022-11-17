@@ -1,15 +1,16 @@
-import { swap } from "./Utility";
+import { getInsertionSortAnimations } from "./InsertionSort";
 
-const arr = [23, 45, 16, 37, 3, 99, 22]
-export function bucketSort(arr) {
-    if (arr.length === 0) {
-       return arr;
+export function getBucketSortAnimations(arr) {
+   const copy = [...arr];
+   const animations = [];
+    if (copy.length === 0) {
+       return copy;
     }
     let i,
-    minValue = arr[0],
-    maxValue = arr[0],
+    minValue = copy[0],
+    maxValue = copy[0],
     bucketSize = 5;
-    arr.forEach(function (currentVal) {
+    copy.forEach(function (currentVal) {
        if (currentVal < minValue) {
           minValue = currentVal;
        } else if (currentVal > maxValue) {
@@ -21,27 +22,23 @@ export function bucketSort(arr) {
     for (i = 0; i < allBuckets.length; i++) {
        allBuckets[i] = [];
     }
-    arr.forEach(function (currentVal) {
-       allBuckets[Math.floor((currentVal - minValue) / bucketSize)].push(currentVal);
-    });
-    arr.length = 0;
-    allBuckets.forEach(function(bucket) {
-       insertion(bucket);
-       bucket.forEach(function (element) {
-          arr.push(element)
-       });
-    });
-    return arr;
- }
- const insertion = arr => {
-    let length = arr.length;
-    let i, j;
-    for(i = 1; i < length; i++) {
-       let temp = arr[i];
-       for(j = i - 1; j >= 0 && arr[j] > temp; j--) {
-          arr[j+1] = arr[j];
-       }
-       arr[j+1] = temp;
+   //  copy.forEach(function (currentVal) {
+   //     allBuckets[Math.floor((currentVal - minValue) / bucketSize)].push(currentVal);
+   //  });
+
+    for(let j=0;j<copy.length;j++){
+      animations.push([[j, allBuckets[Math.floor((copy[j] - minValue) / bucketSize)].push(copy[j])], true]);
     }
-    return arr;
- };
+    copy.length = 0;
+    allBuckets.forEach(function(bucket) {
+      console.log(bucket);
+      getInsertionSortAnimations(bucket);
+      //  bucket.forEach(function (element) {
+      //     copy.push(element)
+      //  });
+       for(let k=0;k<bucket.length;k++){
+         animations.push([[k,copy[k]], true]);
+       }
+    });
+    return animations;
+ }

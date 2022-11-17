@@ -5,6 +5,8 @@ import { getInsertionSortAnimations } from "../algorithms/InsertionSort";
 import { getMergeSortAnimations } from "../algorithms/MergeSort";
 import { getBubbleSortAnimations } from "../algorithms/BubbleSort";
 import { getRadixSortAnimations } from "../algorithms/RadixSort";
+import { getCountSortAnimations } from "../algorithms/CountSort";
+import {getBucketSortAnimations} from "../algorithms/BucketSort";
 
 const ARR_LEN = 100;
 const MIN_NUM = 5;
@@ -83,13 +85,13 @@ export default function SortVisualizer(props) {
     animateArrayUpdate(animations);
   }
 
-  function  CountSort() {
-    const animations = getBubbleSortAnimations(arr);
+  function CountSort() {
+    const animations = getCountSortAnimations(arr);
     animateArrayUpdate(animations);
   }
 
   function BucketSort() {
-    const animations = getBubbleSortAnimations(arr);
+    const animations = getBucketSortAnimations(arr);
     animateArrayUpdate(animations);
   }
 
