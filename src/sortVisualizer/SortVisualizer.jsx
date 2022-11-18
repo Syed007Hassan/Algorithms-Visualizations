@@ -7,11 +7,13 @@ import { getBubbleSortAnimations } from "../algorithms/BubbleSort";
 import { getRadixSortAnimations } from "../algorithms/RadixSort";
 import { getCountSortAnimations } from "../algorithms/CountSort";
 import {getBucketSortAnimations} from "../algorithms/BucketSort";
+import { getHeapSortAnimations} from "../algorithms/HeapSort.js";
+
 
 const ARR_LEN = 100;
 const MIN_NUM = 5;
 const MAX_NUM = 80;
-const DELAY = 10;
+const DELAY = 25;
 const ACCESSED_COLOUR = "turquoise";
 const SORTED_COLOUR = "green";
 let MainArray = [];
@@ -92,6 +94,11 @@ export default function SortVisualizer(props) {
 
   function BucketSort() {
     const animations = getBucketSortAnimations(arr);
+    animateArrayUpdate(animations);
+  }
+
+  function HeapSort() {
+    const animations = getHeapSortAnimations(arr);
     animateArrayUpdate(animations);
   }
 
@@ -221,6 +228,9 @@ export default function SortVisualizer(props) {
           <li>
             <button className="app-button" onClick={BucketSort}>
               Bucket Sort  
+            </button>
+            <button className="app-button" onClick={HeapSort}>
+              Heap Sort  
             </button>
           </li>  
         </ul>
