@@ -1,50 +1,57 @@
 import { getInsertionSortAnimations } from "./InsertionSort";
 
 export function getBucketSortAnimations(arr) {
+
    const copy = [...arr];
    const animations = [];
-    if (copy.length === 0) {
-       return copy;
-    }
-    let i,
-    minValue = copy[0],
-    maxValue = copy[0],
-    bucketSize = 3;
-    copy.forEach(function (currentVal) {
-       if (currentVal < minValue) {
-          minValue = currentVal;
-          animations.push([[minValue], false]);
-       } else if (currentVal > maxValue) {
-          maxValue = currentVal;
-          animations.push([[maxValue], false]); 
-       }
-    })
-    let bucketCount = Math.floor((maxValue - minValue) / bucketSize) + 1;
-    let allBuckets = new Array(bucketCount);
-    for (i = 0; i < allBuckets.length; i++) {
-       allBuckets[i] = [];
-    }
-    copy.forEach(function (currentVal) {
-       allBuckets[Math.floor((currentVal - minValue) / bucketSize)].push(currentVal);
-    });
 
-   //  for(let j=0;j<copy.length;j++){
-   //    animations.push([[j, allBuckets[Math.floor((copy[i] - minValue) / bucketSize)].push(copy[i])], true]);
-   //  }
-
-    copy.length = 0;
-    allBuckets.forEach(function(bucket) {
-      // console.log(bucket);
-      getInsertionSortAnimations(bucket);
-       bucket.forEach(function (element,index) {
-          copy.push(element)
-          animations.push([[index,copy[index]], true]);
-       });
-      //  for(let k=0;k<bucket.length;k++){
-      //    animations.push([[k,copy.push(bucket[k])], true]);
-      //  }
-    });
-    return animations;
- }
+   if (copy.length === 0) {
+      return copy;
+   }
+   let i,
+   minValue = copy[0],
+   maxValue = copy[0],
+   bucketSize = 5;
+   copy.forEach(function (currentVal, index) {
+      if (currentVal < minValue) {
+         minValue = currentVal;
+         //animations.push([[index,minValue], true]);
+      } else if (currentVal > maxValue) {
+         maxValue = currentVal;
+         //animations.push([[index,maxValue], true]);
+      }
+   })
+   let bucketCount = Math.floor((maxValue - minValue) / bucketSize) + 1;
+   let allBuckets = new Array(bucketCount);
+   for (i = 0; i < allBuckets.length; i++) {
+      allBuckets[i] = [];
+   }
+   copy.forEach(function (currentVal) {
+      allBuckets[Math.floor((currentVal - minValue) / bucketSize)].push(currentVal);
+      animations.push([[Math.floor((currentVal - minValue) / bucketSize),currentVal], true]);
+   });
+   copy.length = 0;
+   allBuckets.forEach(function(bucket) {
+      insertion(bucket, animations);
+      bucket.forEach(function (element) {
+         copy.push(element)
+      });
+   });
+   return animations;
+}
+function insertion(arr, animations) {
+   let length = arr.length;
+   let i, j;
+   for(i = 1; i < length; i++) {
+      let temp = arr[i];
+      for(j = i - 1; j >= 0 && arr[j] > temp; j--) {
+         arr[j+1] = arr[j];
+         animations.push([[j+1,arr[j]], true]);
+      }
+      arr[j+1] = temp;
+      animations.push([[j+1,temp], true]);
+   }
+   return arr;
+};
  
 
