@@ -32,7 +32,8 @@ export function getBucketSortAnimations(arr) {
    });
    copy.length = 0;
    allBuckets.forEach(function(bucket) {
-      insertion(bucket, animations);
+       insertion(bucket, animations);
+      // getInsertionSortAnimations(bucket);
       bucket.forEach(function (element) {
          copy.push(element)
       });

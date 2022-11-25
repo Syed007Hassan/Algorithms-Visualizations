@@ -1,6 +1,6 @@
 * {
-  font-family: "Open Sans", sans-serif;
-  font-size: 1em;
+  font-family: 'Roboto Mono', monospace;
+    font-size: 1em;
 }
 
 .array-container {
@@ -10,13 +10,15 @@
 }
 
 .array-bar {
-  background-color: red;
+  background-color: rgb(98, 80, 80);
   border-radius: 0.35em;
   margin: 0.10%;
 }
 
 .app-footer {
+  align-items: center;
   display: flex;
+  overflow-y: auto;
   overflow-x: auto;
   background-color: #333;
   margin-top: auto;
@@ -50,7 +52,7 @@
 .visualizer-container {
   display: flex;
   flex-direction: column;
-  min-height: 105vh;
+  min-height: 100vh;
 }
 
 .displayNo{

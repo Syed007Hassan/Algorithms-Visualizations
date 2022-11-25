@@ -1,54 +1,50 @@
  import { swap } from "./Utility";
 
+ const animations = [];
+ let array_length;
+ export function getHeapSortAnimations(input) {
+    
 
- export function getHeapSortAnimations(arr)
- {
-     var N = arr.length;
-     var animations = [];
+    const copy =[...input];
+    array_length = copy.length;
+
+    for (var i = Math.floor(array_length / 2); i >= 0; i -= 1)      {
+        animations.push([[i,copy[i]], true]);
+        heap_root(copy, i);
+        animations.push([[i,copy[i]], true]);
+      }
+
+    for (i = copy.length - 1; i > 0; i--) {
+        swap(copy, 0, i);
+        animations.push([[i,copy[i]], true]);
+        array_length--;
+        heap_root(copy, 0);
+        animations.push([[0,copy[0]], true]);
+      
+    }
+    return animations;
+}
 
 
-     // Build heap (rearrange array)
-     for (var i = Math.floor(N / 2) - 1; i >= 0; i--)
-         heapify(arr, N, i,animations);
+ function heap_root(input, i) {
+    var left = 2 * i + 1;
+    var right = 2 * i + 2;
+    var max = i;
 
-     // One by one extract an element from heap
-     for (var i = N - 1; i > 0; i--) {
-         // Move current root to end
-         var temp = arr[0];
-         arr[0] = arr[i];
-         arr[i] = temp;
+    if (left < array_length && input[left] > input[max]) {
+        max = left;
+        // animations.push([[max,input[left]], true]);
+    }
 
-         // call max heapify on the reduced heap
-         heapify(arr, i, 0,animations);
-     }
-     return animations;
- }
+    if (right < array_length && input[right] > input[max])     {
+        max = right;
+        // animations.push([[max,input[right]], true]);
+    }
 
- // To heapify a subtree rooted with node i which is
- // an index in arr[]. n is size of heap
- function heapify(arr, N, i,animations)
- {
-     var largest = i; // Initialize largest as root
-     var l = 2 * i + 1; // left = 2*i + 1
-     var r = 2 * i + 2; // right = 2*i + 2
+    if (max != i) {
+        swap(input, i, max);
+        heap_root(input, max);
+    }
+}
 
-     // If left child is larger than root
-     if (l < N && arr[l] > arr[largest]){
-         largest = l;
-        animations.push([i, arr[l]],true);
-     }
-     // If right child is larger than largest so far
-     if (r < N && arr[r] > arr[largest]){
-         largest = r;
-        animations.push([i, arr[r]],true);
-     }
-     // If largest is not root
-     if (largest != i) {
-         var swap = arr[i];
-         arr[i] = arr[largest];
-         arr[largest] = swap;
 
-         // Recursively heapify the affected sub-tree
-         heapify(arr, N, largest,animations);
-     }
- }

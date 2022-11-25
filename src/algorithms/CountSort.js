@@ -15,8 +15,9 @@ export function getCountSortAnimations(arr){
          res[resultIndex] = index;
          animations.push([[resultIndex,res[resultIndex]],true]);
          resultIndex++;
+         // animations.push([[resultIndex,res[resultIndex]],true]);
       };
-      animations.push([[resultIndex,res[resultIndex]],true]);
+       animations.push([[resultIndex,res[resultIndex]],true]);
    });
    return animations;
 };
