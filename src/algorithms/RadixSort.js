@@ -21,6 +21,7 @@ export function getRadixSortAnimations(arr) {
       
        for(let j=0;j<copy.length;j++){
          animations.push([[j,copy[j]], true]);
+         animations.push([[j+1,copy[j]], false]);
 
        }
        // Move to the next significant digit

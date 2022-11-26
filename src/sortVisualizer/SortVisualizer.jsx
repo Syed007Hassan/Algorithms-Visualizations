@@ -13,7 +13,7 @@ import { getHeapSortAnimations} from "../algorithms/HeapSort.js";
 // const ARR_LEN = 100;
 // const MIN_NUM = 5;
 // const MAX_NUM = 80;
-const DELAY = 40;
+const DELAY = 100;
 const ACCESSED_COLOUR = "turquoise";
 const SORTED_COLOUR = "green";
 let MainArray = [];

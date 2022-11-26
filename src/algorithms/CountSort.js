@@ -13,9 +13,10 @@ export function getCountSortAnimations(arr){
    counts.forEach((count, index) => {
       for (let i = 0; i < count; i++) {
          res[resultIndex] = index;
+          animations.push([[resultIndex],false]);
          animations.push([[resultIndex,res[resultIndex]],true]);
          resultIndex++;
-         // animations.push([[resultIndex,res[resultIndex]],true]);
+         animations.push([[resultIndex],false]);
       };
        animations.push([[resultIndex,res[resultIndex]],true]);
    });

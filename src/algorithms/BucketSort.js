@@ -15,10 +15,10 @@ export function getBucketSortAnimations(arr) {
    copy.forEach(function (currentVal, index) {
       if (currentVal < minValue) {
          minValue = currentVal;
-         //animations.push([[index,minValue], true]);
+         animations.push([[index,minValue], false]);
       } else if (currentVal > maxValue) {
          maxValue = currentVal;
-         //animations.push([[index,maxValue], true]);
+         animations.push([[index,maxValue], false]);
       }
    })
    let bucketCount = Math.floor((maxValue - minValue) / bucketSize) + 1;

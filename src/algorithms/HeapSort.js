@@ -11,14 +11,16 @@
     for (var i = Math.floor(array_length / 2); i >= 0; i -= 1)      {
         animations.push([[i,copy[i]], true]);
         heap_root(copy, i);
-        animations.push([[i,copy[i]], true]);
+        animations.push([[i,copy[i]], false]);
       }
 
     for (i = copy.length - 1; i > 0; i--) {
         swap(copy, 0, i);
         animations.push([[i,copy[i]], true]);
+        //animations.push([[i], false]);
         array_length--;
         heap_root(copy, 0);
+         animations.push([[0,copy[0]], false]);
         animations.push([[0,copy[0]], true]);
       
     }
