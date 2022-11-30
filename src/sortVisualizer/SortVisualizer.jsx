@@ -8,6 +8,7 @@ import { getRadixSortAnimations } from "../algorithms/RadixSort";
 import { getCountSortAnimations } from "../algorithms/CountSort";
 import {getBucketSortAnimations} from "../algorithms/BucketSort";
 import { getHeapSortAnimations} from "../algorithms/HeapSort.js";
+import { modified_quicksort } from "../algorithms/7.4.5";
 
 
 // const ARR_LEN = 100;
@@ -99,6 +100,11 @@ export default function SortVisualizer(props) {
 
   function HeapSort() {
     const animations = getHeapSortAnimations(arr);
+    animateArrayUpdate(animations);
+  }
+
+  function Example7() {
+    const animations = modified_quicksort(arr);
     animateArrayUpdate(animations);
   }
 
@@ -231,6 +237,9 @@ export default function SortVisualizer(props) {
             </button>
             <button className="app-button" onClick={HeapSort}>
               Heap Sort  
+            </button>
+            <button className="app-button" onClick={Example7}>
+              Example 7.4  
             </button>
           </li>  
         </ul>

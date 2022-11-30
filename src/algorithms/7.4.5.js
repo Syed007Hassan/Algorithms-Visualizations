@@ -1,70 +1,73 @@
-var nl = getNewLine()
+
+var K = 550;
+let array_length;
 
 
+// void quicksort(int A[], int p, int r) {
+//     if (p < r - 1) {
+//         int q = partition(A, p, r);
+//         quicksort(A, p, q);
+//         quicksort(A, q + 1, r);
+//     }
+// }
 
-function getNewLine() {
-	var agent = navigator.userAgent
+export function modified_quicksort(arr) {
+    const copy =[...arr];
+    array_length = copy.length;
+    const animations = [];
+    var p = 0;
+    var r = array_length
+    limited_quicksort(copy, p, r, K, animations);
+    insertion_sort(copy, p, r, animations);
 
-	if (agent.indexOf("Win") >= 0)
-		return "\r\n";
-	else
-		if (agent.indexOf("Mac") >= 0)
-			return "\r";
-
- 	return "\r";
-
+    return animations;
 }
-quicksort(A,p,r) {
-    if (p < r - 1) {
-        let q = partition(A, p, r);
-        quicksort(A, p, q);
-        quicksort(A, q + 1, r);
+
+function limited_quicksort(copy, p, r, t, animations) {
+    if (r - p > t) {
+        var q = partition(copy, p, r, animations);
+        animations.push([[r,copy[r]],false]);
+        limited_quicksort(copy, p, q, t, animations);
+        limited_quicksort(copy, q + 1, r, t, animations);
     }
 }
 
-void modified_quicksort(int A[], int p, int r) {
-    limited_quicksort(A, p, r, K);
-    insertion_sort(A, p, r);
-}
+function partition(copy, p, r, animations) {
+    var x, i, j, tmp;
 
-void limited_quicksort(int A[], int p, int r, int treshold) {
-    if (r - p > treshold) {
-        int q = partition(A, p, r);
-        limited_quicksort(A, p, q, treshold);
-        limited_quicksort(A, q + 1, r, treshold);
-    }
-}
-
- partition(int A[], int p, int r) {
-    let x, i, j, tmp;
-
-    x = A[r - 1];
+    x = copy[r - 1];
     i = p;
 
     for (j = p; j < r - 1; j++) {
-        if (A[j] <= x) {
-            tmp = A[i];
-            A[i] = A[j];
-            A[j] = tmp;
+        if (copy[j] <= x) {
+            tmp = copy[i];
+            copy[i] = copy[j];
+            animations.push([[i,copy[j]],true]);
+            copy[j] = tmp;
+            animations.push([[j,tmp],true]);
             i++;
         }
     }
 
-    tmp = A[i];
-    A[i] = A[r - 1];
-    A[r - 1] = tmp;
+    tmp = copy[i];
+    copy[i] = copy[r - 1];
+    animations.push([[i,copy[r-1]],true]);
+    copy[r - 1] = tmp;
+    animations.push([[r-1,tmp],true]);
 
     return i;
 }
 
- insertion_sort(let A[], let p, let r) {
-   let i, j, key;
+function insertion_sort(copy, p, r, animations) {
+    var i, j, key;
 
     for (j = p + 1; j < r; j++) {
-        key = A[j];
-        for (i = j - 1; i >= p && A[i] > key; i--) {
-            A[i + 1] = A[i];
+        key = copy[j];
+        for (i = j - 1; i >= p && copy[i] > key; i--) {
+            copy[i + 1] = copy[i];
+            animations.push([[i+1,copy[i]],true]);
         }
-        A[i + 1] = key;
+        copy[i + 1] = key;
+        animations.push([[i+1,key],true]);
     }
 }
