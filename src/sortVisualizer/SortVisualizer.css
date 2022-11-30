@@ -12,7 +12,7 @@
 .array-bar {
   background-color: rgb(98, 80, 80);
   border-radius: 0.35em;
-  margin: 0.10%;
+  margin: 0.20%;
 }
 
 .app-footer {
@@ -70,7 +70,9 @@
 }
 
 @media (min-width: 700px) {
+
   .app-footer {
     justify-content: center;
   }
+  
 }
