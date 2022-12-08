@@ -11,23 +11,28 @@
 
 const findMaximum = copy => copy.reduce((acc, val) => val > acc ? val: acc, Number.MIN_VALUE)
 
-export function getExample8(arr) {
+export function getExample8(arr, setComp, setSpace) {
     console.log("getExample8");
     const copy =[...arr];
     var num=0;
     const animations = [];
+    setSpace("Space Complexity: O(n)"); // O(n) for space complexity since we are using an extra space to store animations approximately equal to the size of the array
     const res = [];
+    setSpace("Space Complexity: O(1)"); // O(1) since we are not using extra space of constant size
     const K = findMaximum(copy);
     var B, C;
     var start = 0, end = 50;
     B = new Array(K+1);
+    setSpace("Space Complexity: O(n+k+1)"); // O(k) since we are creating an array B of size k where k is the maximum value in the array and n is the size of the animations array
     for (var i = 0; i < B.length; i++) {
         B[i] = 0;
     }
     copy.forEach(value => B[value]++);
+    setComp("Time Complexity: O(n)"); // O(n) for copy array
 
     let resultIndex = 0;
     B.forEach((count, index) => {
+        setComp("Time Complexity: O(k)"); // O(k) for B array
         for (let i = 0; i < count; i++) {
            res[resultIndex] = index;
             animations.push([[resultIndex],false]);
@@ -36,7 +41,9 @@ export function getExample8(arr) {
            animations.push([[resultIndex],false]);
         };
          animations.push([[resultIndex,res[resultIndex]],true]);
-     });
+    });
+
+    setComp("Time Complexity: O(n+k)"); // Overall time complexity
 
     C = new Array(K+1);
 
@@ -46,7 +53,7 @@ export function getExample8(arr) {
         C[l] = B[l] + C[l - 1];
         
     }
-    console.log(C[98],C[start], C[end], B[48]);
+    //console.log(C[98],C[start], C[end], B[48]);
     console.log(C[end] - C[start] + B[start]);
 
     // for (var i = start; i < end; i++) {
