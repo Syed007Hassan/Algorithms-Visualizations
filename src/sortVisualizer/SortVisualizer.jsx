@@ -6,11 +6,13 @@ import { getMergeSortAnimations } from "../algorithms/MergeSort";
 import { getBubbleSortAnimations } from "../algorithms/BubbleSort";
 import { getRadixSortAnimations } from "../algorithms/RadixSort";
 import { getCountSortAnimations } from "../algorithms/CountSort";
-import {getBucketSortAnimations} from "../algorithms/BucketSort";
-import { getHeapSortAnimations} from "../algorithms/HeapSort.js";
+import { getBucketSortAnimations } from "../algorithms/BucketSort";
+import { getHeapSortAnimations } from "../algorithms/HeapSort.js";
 import { modified_quicksort } from "../algorithms/7.4.5";
 import { getExample8 } from "../algorithms/8.2";
+
 // Hello world
+
 
 // const ARR_LEN = 100;
 // const MIN_NUM = 5;
@@ -175,9 +177,11 @@ export default function SortVisualizer(props) {
     const arrayBars = containerRef.current.children;
     for (let i = 0; i < arr.length; i++) {
       const arrayBarStyle = arrayBars[i].style;
-      arrayBarStyle.backgroundColor = "";
+      arrayBarStyle.backgroundColor = "RED";
     }
   }
+
+
 
   return (
     <div className="visualizer-container">
@@ -229,7 +233,7 @@ export default function SortVisualizer(props) {
             </button>
           </li>
           <li>
-            <button className="app-button" onClick={bubbleSort}>
+            <button className="app-button" onClick={bubbleSort} onChange={Bubble} >
               Bubble sort
             </button>
           </li>
@@ -240,23 +244,29 @@ export default function SortVisualizer(props) {
           </li>
           <li>
             <button className="app-button" onClick={CountSort}>
-              Count Sort  
+              Count Sort
             </button>
           </li>
           <li>
             <button className="app-button" onClick={BucketSort}>
-              Bucket Sort  
+              Bucket Sort
             </button>
+          </li>
+          <li>
             <button className="app-button" onClick={HeapSort}>
-              Heap Sort  
+              Heap Sort
             </button>
+          </li>
+          <li>
             <button className="app-button" onClick={Example7}>
-              Example 7.4  
+              Example 7.4
             </button>
+          </li>
+          <li>
             <button className="app-button" onClick={Example8}>
-              Example 8.2  
+              Example 8.2
             </button>
-          </li>  
+          </li>
         </ul>
       </footer>
     </div>
