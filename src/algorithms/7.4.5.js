@@ -1,25 +1,35 @@
 
-var K = 550;
+var K = 50;
 let array_length;
 
-export function modified_quicksort(arr) {
+var comp = ""; // complexity variable
+var space = ""; // space complexity variable
+
+export function modified_quicksort(arr, setComp, setSpace) {
     const copy =[...arr];
     array_length = copy.length;
     const animations = [];
+
     var p = 0;
     var r = array_length
     limited_quicksort(copy, p, r, K, animations);
     insertion_sort(copy, p, r, animations);
-
+    setComp(comp); // set complexity
+    if(space === "") {
+        setSpace("Space Complexity: O(n)"); // O(n) for space complexity since we are using an extra space to store animations approximately equal to the size of the array
+    } else {
+        setSpace(space); // set space complexity
+    }
     return animations;
 }
 
 function limited_quicksort(copy, p, r, t, animations) {
     if (r - p > t) {
         var q = partition(copy, p, r, animations);
-
         limited_quicksort(copy, p, q, t, animations);
         limited_quicksort(copy, q + 1, r, t, animations);
+        comp = "Time Complexity: O(nlog(n/k))"; // O(nlog(n/k)) for case when k = 550 which is the threshold
+        space = "Space Complexity: O(n+n)"; // O(n) because of the recursive calls and O(n) for the animations array
     }
 }
 
@@ -55,7 +65,7 @@ function partition(copy, p, r, animations) {
 
 function insertion_sort(copy, p, r, animations) {
     var i, j, key;
-
+    comp = "Time Complexity: O(nk + nlog(n/k))"; // considering the complexity of insertion sort which would ne O(nk) and the complexity of quicksort which would be O(nlog(n/k))
     for (j = p + 1; j < r; j++) {
         key = copy[j];
         for (i = j - 1; i >= p && copy[i] > key; i--) {

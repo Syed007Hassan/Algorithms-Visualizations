@@ -47,6 +47,8 @@ export default function SortVisualizer(props) {
   const [isSorting, setIsSorting] = useState(false);
   const [isSorted, setIsSorted] = useState(false);
   const containerRef = useRef(null);
+  const [comp, setComp] = useState("");
+  const [space, setSpace] = useState("");
 
   useEffect(initialiseArray, []);
 
@@ -60,57 +62,57 @@ export default function SortVisualizer(props) {
       // arr.push((MAX_NUM - MIN_NUM) * (i / ARR_LEN) + MIN_NUM);
       arr.push(mappedElements[i]);
     }
-    shuffle(arr);
+    //shuffle(arr);
     setArr(arr);
   }
 
   function mergeSort() {
-    const animations = getMergeSortAnimations(arr);
+    const animations = getMergeSortAnimations(arr, setComp, setSpace);
     animateArrayUpdate(animations);
   }
 
   function insertionSort() {
-    const animations = getInsertionSortAnimations(arr);
+    const animations = getInsertionSortAnimations(arr, setComp, setSpace);
     animateArrayUpdate(animations);
   }
 
   function quickSort() {
-    const animations = getQuickSortAnimations(arr);
+    const animations = getQuickSortAnimations(arr, setComp, setSpace);
     animateArrayUpdate(animations);
   }
 
   function bubbleSort() {
-    const animations = getBubbleSortAnimations(arr);
+    const animations = getBubbleSortAnimations(arr, setComp, setSpace);
     animateArrayUpdate(animations);
   }
 
   function radixSort() {
-    const animations = getRadixSortAnimations(arr);
+    const animations = getRadixSortAnimations(arr, setComp, setSpace);
     animateArrayUpdate(animations);
   }
 
   function CountSort() {
-    const animations = getCountSortAnimations(arr);
+    const animations = getCountSortAnimations(arr, setComp, setSpace);
     animateArrayUpdate(animations);
   }
 
   function BucketSort() {
-    const animations = getBucketSortAnimations(arr);
+    const animations = getBucketSortAnimations(arr, setComp, setSpace);
     animateArrayUpdate(animations);
   }
 
   function HeapSort() {
-    const animations = getHeapSortAnimations(arr);
+    const animations = getHeapSortAnimations(arr, setComp, setSpace);
     animateArrayUpdate(animations);
   }
 
   function Example7() {
-    const animations = modified_quicksort(arr);
+    const animations = modified_quicksort(arr, setComp, setSpace);
     animateArrayUpdate(animations);
   }
 
   function Example8() {
-    const animations = getExample8(arr);
+    const animations = getExample8(arr, setComp, setSpace);
     animateArrayUpdate(animations);
   }
 
@@ -194,6 +196,10 @@ export default function SortVisualizer(props) {
             </div>
           </div>
         ))}
+      </div>
+      <div className="complexity">
+        <h3 >{comp}</h3>
+        <h3 >{space}</h3>
       </div>
       <footer className="app-footer">
         <ul>

@@ -1,9 +1,11 @@
 import { getInsertionSortAnimations } from "./InsertionSort";
+import React, { useState, useEffect, useRef } from "react";
 
-export function getBucketSortAnimations(arr) {
+export function getBucketSortAnimations(arr, setComp, setSpace) {
 
    const copy = [...arr];
    const animations = [];
+   setSpace("Space Complexity: O(n)"); // O(n) for space complexity since we are using an extra space to store animations approximately equal to the size of the array
 
    if (copy.length === 0) {
       return copy;
@@ -20,13 +22,17 @@ export function getBucketSortAnimations(arr) {
          maxValue = currentVal;
          animations.push([[index,maxValue], false]);
       }
+      setComp("Time Complexity: O(n)"); // O(n) for copy array
    })
    let bucketCount = Math.floor((maxValue - minValue) / bucketSize) + 1;
    let allBuckets = new Array(bucketCount);
+   setSpace("Space Complexity: O(n+k)"); // O(k) for allBuckets array and O(n) for animations array
    for (i = 0; i < allBuckets.length; i++) {
       allBuckets[i] = [];
+      setComp("Time Complexity: O(k)"); // O(k) for counts arrays
    }
    copy.forEach(function (currentVal) {
+      setComp("Time Complexity: O(n+k)"); // O(n+k) for copy and counts array
       allBuckets[Math.floor((currentVal - minValue) / bucketSize)].push(currentVal);
       animations.push([[Math.floor((currentVal - minValue) / bucketSize),currentVal], true]);
    });
