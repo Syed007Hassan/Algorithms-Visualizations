@@ -11,6 +11,8 @@ import { getHeapSortAnimations } from "../algorithms/HeapSort.js";
 import { modified_quicksort } from "../algorithms/7.4.5";
 import { getExample8 } from "../algorithms/8.2";
 
+import { Bubble } from "../complexity/Bubble";
+
 // const ARR_LEN = 100;
 // const MIN_NUM = 5;
 // const MAX_NUM = 80;
@@ -172,9 +174,11 @@ export default function SortVisualizer(props) {
     const arrayBars = containerRef.current.children;
     for (let i = 0; i < arr.length; i++) {
       const arrayBarStyle = arrayBars[i].style;
-      arrayBarStyle.backgroundColor = "";
+      arrayBarStyle.backgroundColor = "RED";
     }
   }
+
+
 
   return (
     <div className="visualizer-container">
@@ -222,7 +226,7 @@ export default function SortVisualizer(props) {
             </button>
           </li>
           <li>
-            <button className="app-button" onClick={bubbleSort}>
+            <button className="app-button" onClick={bubbleSort} onChange={Bubble} >
               Bubble sort
             </button>
           </li>
