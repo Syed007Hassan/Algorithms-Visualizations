@@ -63,6 +63,14 @@
   padding-left: 8px;
 }
 
+.complexity{
+  font-size: 1.5em;
+  font-weight: bold;
+  font-style: italic;
+  text-align: center;
+  margin: 0.2em;
+}
+
 #fileInput{
   
   width: 213px;
