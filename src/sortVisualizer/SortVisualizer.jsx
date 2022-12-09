@@ -178,7 +178,7 @@ export default function SortVisualizer(props) {
     const arrayBars = containerRef.current.children;
     for (let i = 0; i < arr.length; i++) {
       const arrayBarStyle = arrayBars[i].style;
-      arrayBarStyle.backgroundColor = "RED";
+      arrayBarStyle.backgroundColor = "";
     }
   }
 
@@ -235,7 +235,8 @@ export default function SortVisualizer(props) {
             </button>
           </li>
           <li>
-            <button className="app-button" onClick={bubbleSort} onChange={bubbleSort} >
+            <button className="app-button" onClick={bubbleSort} >
+
               Bubble sort
             </button>
           </li>

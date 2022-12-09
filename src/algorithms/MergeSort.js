@@ -1,16 +1,18 @@
-  import { swap } from "./Utility";
-  import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
-  var comp = ""; // complexity variable
+  var comp = ""; 
+  // complexity variable
 
   export function getMergeSortAnimations(arr, setComp, setSpace) {
   const copy = [...arr];
   const len = copy.length;
   const aux = Array(len);
-  setSpace("Space Complexity: O(n)"); // O(n) for space complexity since we are using an auxillary array of size n
+  setSpace("Space Complexity: O(n)"); 
+  // O(n) for space complexity since we are using an auxillary array of size n
 
   const animations = [];
-  setSpace("Space Complexity: O(n+n)"); // O(n=n) for space complexity since we are using an extra space to store animations approximately equal to the size of the array
+  setSpace("Space Complexity: O(n+n)"); 
+  // O(n=n) for space complexity since we are using an extra space to store animations approximately equal to the size of the array
   mergeSortHelper(copy, aux, 0, len - 1, animations);
   setComp(comp); // assign the complexity to the state variable
   return animations;
@@ -23,7 +25,8 @@
   mergeSortHelper(arr, aux, mid + 1, right, animations);
   merge(arr, aux, left, mid, right, animations);
 
-  comp = "Time Complexity: O(nlogn)"; // O(nlogn) for best case and worst case
+  comp = "Time Complexity: O(nlogn)"; 
+  // O(nlogn) for best case and worst case
   }
 
   function merge(arr, aux, left, mid, right, animations) {
