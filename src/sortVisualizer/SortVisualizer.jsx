@@ -18,8 +18,8 @@ import { getExample8 } from "../algorithms/8.2";
 // const MIN_NUM = 5;
 // const MAX_NUM = 80;
 const DELAY = 100;
-const ACCESSED_COLOUR = "turquoise";
-const SORTED_COLOUR = "green";
+const ACCESSED_COLOUR = "darkgrey";
+const SORTED_COLOUR = "darkcyan";
 let MainArray = [];
 let n;
 
@@ -51,6 +51,7 @@ export default function SortVisualizer(props) {
   const containerRef = useRef(null);
   const [comp, setComp] = useState("");
   const [space, setSpace] = useState("");
+  const [range, setRange] = useState("");
 
   useEffect(initialiseArray, []);
 
@@ -114,7 +115,7 @@ export default function SortVisualizer(props) {
   }
 
   function Example8() {
-    const animations = getExample8(arr, setComp, setSpace);
+    const animations = getExample8(arr, setComp, setSpace, setRange);
     animateArrayUpdate(animations);
   }
 
@@ -204,6 +205,7 @@ export default function SortVisualizer(props) {
       <div className="complexity">
         <h3 >{comp}</h3>
         <h3 >{space}</h3>
+        <h3 >{range}</h3>
       </div>
       <footer className="app-footer">
         <ul>
@@ -233,7 +235,7 @@ export default function SortVisualizer(props) {
             </button>
           </li>
           <li>
-            <button className="app-button" onClick={bubbleSort} onChange={Bubble} >
+            <button className="app-button" onClick={bubbleSort} onChange={bubbleSort} >
               Bubble sort
             </button>
           </li>

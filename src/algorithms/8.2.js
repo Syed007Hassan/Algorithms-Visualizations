@@ -11,7 +11,7 @@
 
 const findMaximum = copy => copy.reduce((acc, val) => val > acc ? val: acc, Number.MIN_VALUE)
 
-export function getExample8(arr, setComp, setSpace) {
+export function getExample8(arr, setComp, setSpace, setRange) {
     console.log("getExample8");
     const copy =[...arr];
     var num=0;
@@ -55,13 +55,7 @@ export function getExample8(arr, setComp, setSpace) {
     }
     //console.log(C[98],C[start], C[end], B[48]);
     console.log(C[end] - C[start] + B[start]);
-
-    // for (var i = start; i < end; i++) {
-    //    if(B[i] > 0){
-    //        animations.push([[i],true]);
-    //        //console.log(i,B[i]);
-    //    }
-    // }
+    setRange("Range: " + (C[end] - C[start] + B[start]));
 
     return animations;
 }
