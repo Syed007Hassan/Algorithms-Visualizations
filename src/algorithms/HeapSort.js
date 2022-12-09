@@ -13,15 +13,18 @@
         animations.push([[i,copy[i]], true]);
         heap_root(copy, i);
         animations.push([[i,copy[i]], false]);
-        setComp("Complexity: O(n/2)"); // O(n/2) since half array is take into consideration
+        setComp("Complexity: O(n/2)");
+        // O(n/2) since half array is take into consideration
       }
 
     for (i = copy.length - 1; i > 0; i--) {
 
         if(check === 0){
-            setComp("Complexity: O(n)"); // O(n) for best case
+            setComp("Complexity: O(n)");
+             // O(n) for best case
         } else {
-            setComp("Complexity: O(nlogn)"); // O(nlogn) for bet, average and worst case
+            setComp("Complexity: O(nlogn)");
+             // O(nlogn) for best, average and worst case
         }
         swap(copy, 0, i);
         animations.push([[i,copy[i]], true]);
