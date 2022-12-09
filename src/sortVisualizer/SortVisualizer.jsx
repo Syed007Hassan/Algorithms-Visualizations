@@ -10,6 +10,7 @@ import { getBucketSortAnimations } from "../algorithms/BucketSort";
 import { getHeapSortAnimations } from "../algorithms/HeapSort.js";
 import { modified_quicksort } from "../algorithms/7.4.5";
 import { getExample8 } from "../algorithms/8.2";
+import {Timer} from "./Timer.jsx";
 
 // Hello world
 
@@ -217,6 +218,11 @@ export default function SortVisualizer(props) {
           <li>
             <button className="app-button" onClick={initialiseArray}>
               Create new array
+            </button>
+          </li>
+          <li>
+            <button className="app-button">
+              <Timer />
             </button>
           </li>
           <li>
