@@ -24,7 +24,7 @@ const SORTED_COLOUR = "darkcyan";
 let MainArray = [];
 let n;
 
-export default function SortVisualizer(props) {
+export default function SortVisualizer() {
   let mappedElements = [];
   var onLoad = function (event) {
     // eslint-disable-next-line no-undef
@@ -76,6 +76,7 @@ export default function SortVisualizer(props) {
   }
 
   function insertionSort() {
+
     const animations = getInsertionSortAnimations(arr, setComp, setSpace);
     animateArrayUpdate(animations);
   }
@@ -88,6 +89,7 @@ export default function SortVisualizer(props) {
   function bubbleSort() {
     const animations = getBubbleSortAnimations(arr, setComp, setSpace);
     animateArrayUpdate(animations);
+
   }
 
   function radixSort() {
@@ -183,8 +185,10 @@ export default function SortVisualizer(props) {
     }
   }
 
-
-
+  function toggle(){
+    return true;
+  }
+  
   return (
     <div className="visualizer-container">
       <div className="array-container" ref={containerRef}>
@@ -226,7 +230,7 @@ export default function SortVisualizer(props) {
             </button>
           </li>
           <li>
-            <button className="app-button" onClick={mergeSort}>
+            <button className="app-button" onClick={() => { mergeSort();}}>
               Merge sort
             </button>
           </li>

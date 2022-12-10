@@ -12,36 +12,35 @@
   
   .time {
     font-size: 1.5rem;
-    padding: 1rem;
+    padding: 0.5rem;
+    color: white;
   }
   
   .button {
     padding: .6rem 1.5rem;
     margin: .4rem;
-    border-radius: 2px;
+    /* border-radius: 0.4em; */
     text-transform: uppercase;
     font-weight: 400;
     font-size: .8rem;
-    border-style: groove;
+    /* border-style: groove; */
   }
   
-  .button:focus {
+  /* .button:focus {
     outline-width: 0;
-  }
+  } */
   
-  .button-primary:hover {
+  /* .button-primary:hover {
     background-color: #2641d4;
     border: 1px solid #1b1f2b;
-  }
+  } */
   
   .button-primary-active {
-    background-color: #3151ff;
-    border: 1px solid #152684;
-    color: white;
+    color: #333;
+    background-color: #eaeaea;  
   }
   
   .button-primary-inactive {
-    background-color: #3151ff;
-    border: 1px solid #152684;
-    color: white;
+    color: #333;
+    background-color: #eaeaea;
   }

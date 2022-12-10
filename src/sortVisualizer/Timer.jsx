@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './timer.css';
 import "./SortVisualizer.css";
 
-export const Timer = () => {
+export const Timer = (props) => {
     const [seconds, setSeconds] = useState(0);
     const [isActive, setIsActive] = useState(false);
   
@@ -33,7 +33,7 @@ export const Timer = () => {
           {seconds}s
         </div>
         <div className="row">
-          <button className={`button app-button -${isActive ? 'active' : 'inactive'}`} onClick={toggle}>
+          <button className={`button app-button -${isActive ? 'active' : 'inactive'}`} onClick={() => { toggle(); props.toggle  }} >
             {isActive ? 'Pause' : 'Start'}
           </button>
           <button className="button app-button" onClick={reset}>
