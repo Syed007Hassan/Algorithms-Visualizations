@@ -2,6 +2,7 @@
   "homepage": "https://Syed007Hassan.github.io/Algorithms-Visualizations",
   "name": "react-sort-visualizer",
   "version": "0.1.0",
+  "main": "src/index.js",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.0",
@@ -15,7 +16,7 @@
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
   "browserslist": {
