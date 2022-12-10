@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/Syed007Hassan/Algorithms-Visualizations/static/css/main.e1aa578a.css",
-    "main.js": "/Syed007Hassan/Algorithms-Visualizations/static/js/main.7327c5d4.js",
-    "index.html": "/Syed007Hassan/Algorithms-Visualizations/index.html",
-    "main.e1aa578a.css.map": "/Syed007Hassan/Algorithms-Visualizations/static/css/main.e1aa578a.css.map",
-    "main.7327c5d4.js.map": "/Syed007Hassan/Algorithms-Visualizations/static/js/main.7327c5d4.js.map"
+    "main.css": "/Algorithms-Visualizations/static/css/main.e1aa578a.css",
+    "main.js": "/Algorithms-Visualizations/static/js/main.7327c5d4.js",
+    "index.html": "/Algorithms-Visualizations/index.html",
+    "main.e1aa578a.css.map": "/Algorithms-Visualizations/static/css/main.e1aa578a.css.map",
+    "main.7327c5d4.js.map": "/Algorithms-Visualizations/static/js/main.7327c5d4.js.map"
   },
   "entrypoints": [
     "static/css/main.e1aa578a.css",
