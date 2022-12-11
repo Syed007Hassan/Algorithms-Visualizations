@@ -1,6 +1,8 @@
 # Algorithms-Visualizations
-- Programming Design
+## Programming Design
+<p>
 Javascript was used to create the program's GUI and to implement the codes. For the front end, ReactJs was used. The implemented algorithms are kept in various functions that are imported into the SortVisualiser component. Each sorting function receives the integer array from this component. After that, when the sorting operations are running, an animation array is used, and the values are pushed into it. Values are displayed as they are pushed as bars with flashes to indicate comparisons and swapping being done.
+</p>
 
 <p align="center">
     <img width="300" src="https://user-images.githubusercontent.com/104893311/206890859-bf58788b-8af2-4022-8e8f-d325852c5f57.png" alt="Material Bread logo">
