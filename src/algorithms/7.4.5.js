@@ -2,7 +2,7 @@
 // running time of insertion sort when its input is "nearly" sorted. Upon calling quicksort
 // on a subarray with fewer than kk elements, let it simply return without sorting the subarray.
 // After the top-level call to quicksort returns, run insertion sort on the entire array to finish
-// the sorting process. Argue that this sorting algorithm runs in O(nk + nlg(n/k))O(nk+nlg(n/k))
+// the sorting process. Argue that this sorting algorithm runs in O(nk + nlg(n/k))
 // expected time. How should we pick k, both in theory and practice?
 
 var K = 50;

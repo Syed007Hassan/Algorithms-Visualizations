@@ -6,7 +6,7 @@ export function getCountSortAnimations(arr, setComp, setSpace) {
   const animations = [];
 
   setSpace("Space Complexity: O(n)");
-  // O(n) for space complexity since we are using an extra space to store animations approximately equal to the size of the array
+  // O for space complexity since we are using an extra space to store animations approximately equal to the size of the array
 
   const max = findMaximum(copy);
   const counts = new Array(max + 1);
