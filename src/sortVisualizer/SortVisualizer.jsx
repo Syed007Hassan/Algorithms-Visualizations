@@ -12,8 +12,6 @@ import { modified_quicksort } from "../algorithms/7.4.5";
 import { getExample8 } from "../algorithms/8.2";
 import {Timer} from "./Timer.jsx";
 
-// Hello world
-
 
 // const ARR_LEN = 100;
 // const MIN_NUM = 5;
