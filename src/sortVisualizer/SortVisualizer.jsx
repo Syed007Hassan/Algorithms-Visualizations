@@ -211,22 +211,21 @@ export default function SortVisualizer() {
         <h3 >{range}</h3>
       </div>
       <footer className="app-footer">
-        <ul>
-          <li>
-            <button className="app-button">
-              <input type="file" id="fileInput" onChange={onLoad} />
-            </button>
-          </li>
-          <li>
-            <button className="app-button" onClick={initialiseArray}>
-              Create new array
-            </button>
-          </li>
-          <li>
-            <button className="app-button">
+
+        <div class="flex-col">
+          <button className="app-button">
+                <input type="file" id="fileInput" onChange={onLoad} />
+          </button>
+
+          <button className="app-button" onClick={initialiseArray}>
+                Create new array
+          </button>
+        </div>
+        <button className="app-button">
               <Timer />
-            </button>
-          </li>
+        </button>
+
+        <ul>
           <li>
             <button className="app-button" onClick={() => { mergeSort();}}>
               Merge sort
